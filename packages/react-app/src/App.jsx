@@ -31,6 +31,8 @@ import deployedContracts from "./contracts/hardhat_contracts.json";
 import { getRPCPollTime, Transactor, Web3ModalSetup } from "./helpers";
 import { Home, ExampleUI, Hints, Report, Subgraph } from "./views";
 import { useStaticJsonRPC, useGasPrice } from "./hooks";
+import Profile from "./views/Profile";
+import Dispute from "./views/Dispute";
 
 const { ethers } = require("ethers");
 /*
@@ -305,13 +307,16 @@ function App(props) {
       />
       <Menu style={{ textAlign: "center", marginTop: 20 }} selectedKeys={[location.pathname]} mode="horizontal">
         <Menu.Item key="/">
-          <Link to="/">Delegate</Link>
+          <Link to="/">Stepping out</Link>
         </Menu.Item>
         <Menu.Item key="/report">
           <Link to="/report">Report</Link>
       </Menu.Item>
-      <Menu.Item key="/exampleui1">
-          <Link to="/exampleui1">Profile</Link>
+      <Menu.Item key="/profile">
+          <Link to="/profile">My delegate </Link>
+      </Menu.Item>
+      <Menu.Item key="/dispute">
+          <Link to="/dispute">Dispute</Link>
       </Menu.Item>
       </Menu>
 
@@ -337,16 +342,8 @@ function App(props) {
             contractConfig={contractConfig}
           />
         </Route>
-        <Route path="/hints">
-          <Hints
-            address={address}
-            yourLocalBalance={yourLocalBalance}
-            mainnetProvider={mainnetProvider}
-            price={price}
-          />
-        </Route>
-        <Route path="/exampleui">
-          <ExampleUI
+        <Route path="/report">
+          <Report
             address={address}
             userSigner={userSigner}
             mainnetProvider={mainnetProvider}
@@ -359,8 +356,44 @@ function App(props) {
             purpose={purpose}
           />
         </Route>
-        <Route path="/report">
-          <Report
+        <Route path="/profile">
+          <Profile
+            address={address}
+            userSigner={userSigner}
+            mainnetProvider={mainnetProvider}
+            localProvider={localProvider}
+            yourLocalBalance={yourLocalBalance}
+            price={price}
+            tx={tx}
+            writeContracts={writeContracts}
+            readContracts={readContracts}
+            purpose={purpose}
+          />
+        </Route>
+        <Route path="/dispute">
+          <Dispute
+            address={address}
+            userSigner={userSigner}
+            mainnetProvider={mainnetProvider}
+            localProvider={localProvider}
+            yourLocalBalance={yourLocalBalance}
+            price={price}
+            tx={tx}
+            writeContracts={writeContracts}
+            readContracts={readContracts}
+            purpose={purpose}
+          />
+        </Route>
+        <Route path="/hints">
+          <Hints
+            address={address}
+            yourLocalBalance={yourLocalBalance}
+            mainnetProvider={mainnetProvider}
+            price={price}
+          />
+        </Route>
+        <Route path="/exampleui">
+          <ExampleUI
             address={address}
             userSigner={userSigner}
             mainnetProvider={mainnetProvider}

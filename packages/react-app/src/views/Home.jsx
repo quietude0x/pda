@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Address, Balance, Events } from "../components";
+import TextArea from "antd/lib/input/TextArea";
 
 /**
  * web3 props can be passed from '../App.jsx' into your local view component for use
@@ -22,34 +23,38 @@ function Home({
   readContracts,
   writeContracts,
 }) {
-  const [daoAddress, setDaoAddress] = useState("...");
-  const [delegateAddress, setDelegateAddress] = useState("...");
-  const [message, setMessage] = useState("...");
+  const [daoAddress, setDaoAddress] = useState("0x...");
+  const [delegateAddress, setDelegateAddress] = useState("0x... or .eth or .lens");
+  const [message, setMessage] = useState("I want to signal that I am stepping down from participating in this DAO governance. blahblahblah");
+  const { TextArea } = Input;
 
   return (
     <div>
       {/*
         ⚙️ Here is an example UI that displays and sets the purpose in your smart contract:
       */}
-      <div style={{ border: "1px solid #cccccc", padding: 16, width: 400, margin: "auto", marginTop: 64 }}>
-        <h2>Delegate:</h2>
-        <h4> DAO Address: {daoAddress}</h4>
+      <div style={{ border: "1px solid #cccccc", padding: 16, width: 600, margin: "auto", marginTop: 64 }}>
+        <h2>Stepping out and delegate:</h2>
+        <h4> DAO Address I want to stepping out and delegate: </h4>
         <div style={{ margin: 8 }}>
           <Input
+            placeholder={daoAddress}
             onChange={e => {
               setDaoAddress(e.target.value);
             }}
           />
-          <h4> Delegate Address: {delegateAddress}</h4>
+          <h4> Recommended delegate address for my delegators : </h4>
           <Input
+            placeholder={delegateAddress}
             onChange={e => {
               setDelegateAddress(e.target.value);
             }}
           />
-          <h4> Put a message with your report : </h4>
-          <Input
+          <h4> Put a message with you stepping out act : </h4>
+          <TextArea
+            placeholder={message}
             onChange={e => {
-              setDelegateAddress(e.target.value);
+              setMessage(e.target.value);
             }}
           />
           <Button
@@ -60,12 +65,11 @@ function Home({
               console.log(daoAddress);
             }}
           >
-            Delegate
+            Stepping out
           </Button>
         </div>
       </div>
 
-      <Events />
     </div>
   );
 }
