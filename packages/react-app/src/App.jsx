@@ -313,7 +313,7 @@ function App(props) {
           <Link to="/report">Report</Link>
       </Menu.Item>
       <Menu.Item key="/profile">
-          <Link to="/profile">My delegate </Link>
+          <Link to="/profile">My delegates </Link>
       </Menu.Item>
       <Menu.Item key="/dispute">
           <Link to="/dispute">Dispute</Link>

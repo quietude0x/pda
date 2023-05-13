@@ -35,7 +35,7 @@ function Home({
       */}
       <div style={{ border: "1px solid #cccccc", padding: 16, width: 600, margin: "auto", marginTop: 64 }}>
         <h2>Stepping out and delegate:</h2>
-        <h4> DAO Address I want to stepping out and delegate: </h4>
+        <h4> DAO Address I want to stepping out : </h4>
         <div style={{ margin: 8 }}>
           <Input
             placeholder={daoAddress}
@@ -50,7 +50,7 @@ function Home({
               setDelegateAddress(e.target.value);
             }}
           />
-          <h4> Put a message with you stepping out act : </h4>
+          <h4> Put a message with your stepping out act : </h4>
           <TextArea
             placeholder={message}
             onChange={e => {

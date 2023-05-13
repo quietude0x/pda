@@ -27,7 +27,7 @@ export default function Dispute({
       */}
       <div style={{ border: "1px solid #cccccc", padding: 16, width: 600, margin: "auto", marginTop: 64 }}>
         <h2>Dispute:</h2>
-        <h4> Reporter Tx/Address/smht:</h4>
+        <h4> Reporter tx address:</h4>
         <Input
           placeholder={reporterAddress}
           onChange={e => {
